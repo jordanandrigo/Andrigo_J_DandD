@@ -11,18 +11,17 @@
 	const pieces = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
 
 
-
-
-
-
-
 		//functions go here => we want to have happen when our triggers fire
 	function changeImageSet() {
+
 		// change the thumbnail image on the left to mamtch the buttom image
-		pieces.forEach((piece, index) => {
-			puzzlePiece[index].src=`images/${piece + this.dataset.puzzleindex}.jpg`;
-			puzzlePiece[index].id=`${piece + this.dataset.puzzleindex}`;	
-		});
+		pieces.forEach((piece, id) => {
+			const puzzlePieces = document.querySelector(".puzzle-pieces")
+			puzzlePieces.appendChild(puzzlePiece[id])
+			puzzlePiece[id].src= `images/${piece + this.dataset.puzzleindex}.jpg`;
+			puzzlePiece[id].id= `${piece + this.dataset.puzzleindex}`;
+			
+	});
 
 
 		// and set a background image on the drop xone container
@@ -30,9 +29,6 @@
 		// change the thumbnail iamges on the left to match the button image
 		puzzleBoard.style.backgroundImage = `url(images/backGround${this.dataset.puzzleindex}.jpg)`;
 	}
-
-
-
 
 
 	function dragStart(event) {
@@ -50,20 +46,25 @@
 
 
 
-	function allowDragOver(event) {
+	function allowDrag(event) {
 		event.preventDefault();
-		console.log('you dragged something into me!');
-
-		let currentPiece = event.dataTransfer.getData("text/plain");
-
-		event.target.appendChild(docuemnt.querySelector(`#${currentPiece}`));
+		console.log('you dragged something onto me!');
 	}
-
-
+	
 
 
 	function allowDrop(event) {
-		console.log('you dropped something into me!');
+		console.log(event.target)
+
+		if (!this.hasChildNodes()) {
+
+			event.preventDefault();
+			console.log('you dropped something onto me!')
+
+		   	let currentPiece = event.dataTransfer.getData ("text/plain");
+
+		   	event.target.appendChild(document.querySelector(`#${currentPiece}`)) 
+		}
 	}
 
 
@@ -79,7 +80,7 @@
 
 
 	// set up drag over event for drop zones
-	dropZones.forEach(zone => zone.addEventListener('dragover', allowDragOver));
+	dropZones.forEach(zone => zone.addEventListener('dragover', allowDrag));
 	
 
 	// set up drop zone event for drop zones

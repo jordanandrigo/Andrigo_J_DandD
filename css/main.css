@@ -1,5 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
+
+
 body {
 	background-image: url(../images/puzzle2.jpg);
 	background-repeat: repeat;
@@ -9,9 +11,14 @@ body {
 	font-size: 16px;
 }
 
-.hidden { display: none }
+.hidden { 
+	display: none 
+}
 
-#game-boards { width: 100%; text-align: center; }
+#game-boards { 
+	width: 100%; 
+	text-align: center; 
+}
 
 .puzzle-pieces, .puzzle-board {
 	margin-top: 40px;
@@ -23,9 +30,14 @@ body {
 	overflow: hidden;
 }
 
-.puzzle-pieces { width: 300px; margin-right: 20px; }
+.puzzle-pieces { 
+	width: 300px; 
+	margin-right: 20px; 
+}
 
-.puzzle-board { width: 600px; }
+.puzzle-board { 
+	width: 600px; 
+}
 
 .puzzle-image {
 	width: 40%;
@@ -34,11 +46,33 @@ body {
 	cursor: pointer;
 }
 
-/* arrange the puzzle pieces on the board */
+/* arrange puzzle pieces on the board */
 
+.tl, .bl {
+	text-align: right;
+}
 
+.tr img {
+	bottom: 0;
+}
 
-/* set up drop zones */
+.tl img {
+	bottom: 0;
+}
+
+.bl img {
+	right: 0;
+}
+
+.drop-zone img {
+	width: auto !important;
+	padding: 0 !important;
+	cursor: pointer;
+	position: absolute;
+}
+
+/* set drop zones */
+
 .drop-zone {
 	width: 49.5%;
 	height: 49.5%;
@@ -46,8 +80,6 @@ body {
 	float: right;
 	position: relative;
 }
-
-
 
 /* end board styles */
 
@@ -66,10 +98,10 @@ header h1 {
 	margin: 10px 0
 }
 
-header p, footer p { 
-	font-size: 1.7em; 
-	letter-spacing: 2px; 
-	margin: 10px 0 
+header p, footer p {
+	font-size: 1.7em;
+	letter-spacing: 2px;
+	margin: 10px 0
 }
 
 footer {
@@ -79,7 +111,10 @@ footer {
 	text-align: center;
 }
 
-#buttonHolder { margin: 0px auto; text-align: center; }
+#buttonHolder { 
+	margin: 0px auto; 
+	text-align: center; 
+}
 
 #buttonHolder img {
 	margin-left: 5px;
@@ -89,4 +124,6 @@ footer {
 	cursor: pointer;
 }
 
-#buttonHolder img:hover { opacity: .5; }
+#buttonHolder img:hover { 
+	opacity: .5; 
+}
